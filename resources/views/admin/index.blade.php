@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    Josh Admin Template
+   
     @parent
 @stop
 
@@ -33,14 +33,31 @@
         </ol>
     </section>
     <section class="content">
-        @if ($analytics_error != 0)
-            <div class="alert alert-danger alert-dismissable margin5">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Error:</strong> You Need to add Google Analytics file for full working of the page
-            </div>
-        @endif
+      
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig">
+            <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInLeftBig">
+                <!-- Trans label pie charts strats here-->
+                <div class="widget-1">
+                    <div class="panel-body squarebox square_boxs">
+                        <div class="col-xs-12 pull-left nopadmar">
+                            <div class="row">
+                                <div class="square_box col-xs-7 text-right">
+                                    <span>Kategori</span>
+
+                                    <div class="number" id="myTargetElement6"></div>
+                                </div>
+                                <span class="widget_circle3 pull-right">
+                <i class="livicon livicon-evo-holder " data-name="eye-open" data-l="true" data-c="#01BC8C"
+    data-hc="#01BC8C" data-s="40"></i>
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInLeftBig">
                 <!-- Trans label pie charts strats here-->
                 <div class="widget-1">
                     <div class="panel-body squarebox square_boxs">
@@ -52,7 +69,7 @@
                                     <div class="number" id="myTargetElement3"></div>
                                 </div>
                                 <span class="widget_circle3 pull-right">
- <i class="livicon livicon-evo-holder " data-name="eye-open" data-l="true" data-c="#01BC8C"
+                <i class="livicon livicon-evo-holder " data-name="eye-open" data-l="true" data-c="#01BC8C"
     data-hc="#01BC8C" data-s="40"></i>
                                 </span>
 
@@ -62,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig">
+            <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInLeftBig">
                 <!-- Trans label pie charts strats here-->
                 <div class="widget-1">
                     <div class="panel-body squarebox square_boxs">
@@ -74,7 +91,7 @@
                                     <div class="number" id="myTargetElement4"></div>
                                 </div>
                                 <span class="widget_circle4 pull-right">
- <i class="livicon livicon-evo-holder " data-name="user" data-l="true" data-c="#F89A14"
+                        <i class="livicon livicon-evo-holder " data-name="user" data-l="true" data-c="#F89A14"
     data-hc="#F89A14" data-s="40"></i>
                                 </span>
 
@@ -84,7 +101,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
+              <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInLeftBig">
+                <!-- Trans label pie charts strats here-->
+                <div class="widget-1">
+                    <div class="panel-body squarebox square_boxs">
+                        <div class="col-xs-12 pull-left nopadmar">
+                            <div class="row">
+                                <div class="square_box col-xs-7 text-right">
+                                    <span>Customer</span>
+
+                                    <div class="number" id="myTargetElement5"></div>
+                                </div>
+                                <span class="widget_circle4 pull-right">
+                        <i class="livicon livicon-evo-holder " data-name="user" data-l="true" data-c="#F89A14"
+    data-hc="#F89A14" data-s="40"></i>
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInRightBig">
                 <!-- Trans label pie charts strats here-->
                 <div class="widget-1">
                     <div class="panel-body squarebox square_boxs">
@@ -106,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
+            <div class="col-lg-2 col-md-5 col-sm-5 margin_10 animated fadeInRightBig">
                 <!-- Trans label pie charts strats here-->
                 <div class="widget-1">
                     <div class="panel-body squarebox square_boxs">
@@ -138,11 +177,12 @@
                         <div class="panel panel-border main_chart">
                             <div class="panel-heading ">
                                 <h3 class="panel-title">
-                                    <i class="livicon" data-name="barchart" data-size="16" data-loop="true" data-c="#EF6F6C" data-hc="#EF6F6C"></i> Users Stats
+                                    <i class="livicon" data-name="barchart" data-size="16" data-loop="true" data-c="#EF6F6C" data-hc="#EF6F6C"></i> 
+                                    Monthly Sale 
                                 </h3>
                             </div>
                             <div class="panel-body">
-                                {!! $db_chart->html() !!}
+                             {!! $saledetail->html() !!}
 
                             </div>
                         </div>
@@ -159,7 +199,7 @@
 
                             </div>
                             <div class="panel-body nopadmar">
-                                {!! $user_roles->html() !!}
+                              
                             </div>
                         </div>
                     </div>
@@ -169,31 +209,17 @@
                                 <h4 class="panel-title">
                                     <i class="livicon" data-name="barchart" data-size="16" data-loop="true" data-c="#67C5DF"
                                        data-hc="#67C5DF"></i>
-                                    Yearly visitors
+                                    Customers
                                 </h4>
 
                             </div>
                             <div class="panel-body nopadmar">
-                                <div id="bar_chart"></div>
+                             {!! $customer->html() !!}
+                             
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
-                        <div class="panel panel-border map">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    <i class="livicon" data-name="map" data-size="16" data-loop="true" data-c="#515763"
-                                       data-hc="#515763"></i>
-                                    Users from countries
-                                </h3>
-
-                            </div>
-                            <div class="panel-body nopadmar">
-                                {!! $geo->html() !!}
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
 
@@ -231,47 +257,8 @@
 
                     </div>
                 </div>
-                <div class="panel panel-border">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <i class="livicon" data-name="eye-open" data-size="16" data-loop="true" data-c="#EF6F6C"
-                               data-hc="#EF6F6C"></i>
-                            This week visitors
-                        </h4>
-
-                    </div>
-                    <div class="panel-body nopadmar">
-                        <div id="visitors_chart"></div>
-                    </div>
-                </div>
-                <div class="panel panel-border">
-                    <div class="panel-heading border-light">
-                        <h3 class="panel-title">
-                            <i class="livicon" data-name="pen" data-size="16" data-color="#00bc8c" data-hc="#00bc8c"
-                               data-l="true"></i>
-                            Recent Blogs
-                        </h3>
-                    </div>
-                    <div class="panel-body nopadmar blogs">
-                        @foreach($blogs as $blog )
-                            <div class="media">
-                                <div class="media-left">
-                                    @if($blog->author->pic)
-                                        <img src="{!! url('/').'/uploads/users/'.$blog->author->pic !!}" class="media-object img-circle" >
-                                    @else
-                                        <img src="{{ asset('assets/images/authors/no_avatar.jpg') }}" class="media-object img-circle" >
-                                    @endif
-                                </div>
-                                <div class="media-body">
-                                    <h5 class="media-heading">{{ $blog->title }}</h5>
-
-                                    <p>category:  {{ $blog->category->title }} <span class="user_create_date pull-right">by  {{ $blog->author->full_name }} </span></p>
-                                </div>
-                            </div>
-                        @endforeach
-
-                    </div>
-                </div>
+               
+               
             </div>
         </div>
     </section>
@@ -313,13 +300,18 @@
             separator: ',', // character to use as a separator
             decimal: '.' // character to use as a decimal
         };
-        var demo = new CountUp("myTargetElement1", 12.52, {{ $pageVisits }}, 0, 6, options);
+       
+        var demo = new CountUp("myTargetElement1", 100, {{ $sale }}, 0, 6, options);
         demo.start();
-        var demo = new CountUp("myTargetElement2", 1, {{ $blog_count }}, 0, 6, options);
+         var demo = new CountUp("myTargetElement5",100, {{ $cus }}, 0, 6, options);
         demo.start();
-        var demo = new CountUp("myTargetElement3", 24.02, {{ $visitors }}, 0, 6, options);
+        var demo = new CountUp("myTargetElement4", 100, {{ $supplier }}, 0, 6, options);
         demo.start();
-        var demo = new CountUp("myTargetElement4", 125, {{ $user_count }}, 0, 6, options);
+        var demo = new CountUp("myTargetElement3", 100, {{ $product }}, 0, 6, options);
+        demo.start();
+         var demo = new CountUp("myTargetElement2", 100, {{ $purchase }}, 0, 6, options);
+        demo.start();
+        var demo = new CountUp("myTargetElement6", 100, {{ $categ }}, 0, 6, options);
         demo.start();
 
         $('.blogs').slimScroll({
@@ -328,8 +320,7 @@
             size: '5px'
         });
 
-        var week_data = {!! $month_visits !!};
-        var year_data = {!! $year_visits !!};
+        
 
         function lineChart() {
             Morris.Line({
@@ -379,9 +370,9 @@
         });
 
     </script>
-    {!! Charts::scripts() !!}
-    {!! $db_chart->script() !!}
-    {!! $geo->script() !!}
-    {!! $user_roles->script() !!}
-    {{--{!! $line_chart->script() !!}--}}
+   
+{!! Charts::scripts() !!}
+{!! $customer->script() !!}
+{!! $saledetail->script() !!}  
+  
 @stop
