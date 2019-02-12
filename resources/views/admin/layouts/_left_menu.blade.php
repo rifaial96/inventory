@@ -159,7 +159,7 @@
                 </a>
             </li>
             <li {!! (Request::is('admin/report/cash') ? 'class="active"' : '') !!}>
-                <a href="{{ URL::to('admin/product') }}">
+                <a href="{{ URL::to('admin/report_cash') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Cash Flow
                 </a>

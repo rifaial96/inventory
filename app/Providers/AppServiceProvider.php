@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use DB;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        //Schema::defaultStringLength(191);
+        $notif=DB::table('stock')->limit(5)->get();
+        $stok=DB::table('stock')->count();
+
+         view()->share(['notif'=>$notif,'stok'=>$stok]);
     }
 
     /**

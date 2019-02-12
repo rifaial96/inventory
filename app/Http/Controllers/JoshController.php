@@ -9,10 +9,12 @@ use Analytics;
 use View;
 use App\Product;
 use App\Sale;
+use App\Stock;
 use App\Supplier;
 use App\Purchase;
 use App\Customer;
 use App\SaleDetail;
+use App\PurchaseDetail;
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
@@ -366,12 +368,21 @@ class JoshController extends Controller {
             ->responsive(true)
             ->groupByMonth(2018, true);    
 
+        $chart_purchase = PurchaseDetail::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),2018)
+                    ->get();
+        $purchasedetail =  Charts::database($chart_purchase, 'area', 'morris')
+            ->elementLabel("Purchase Product")
+            ->dimensions(0, 250)
+            ->responsive(true)
+            ->groupByMonth(2018, true);    
         $category = DB::table('categories')->count();
         $cus = DB::table('customers')->count();
         $supplier = DB::table('suppliers')->count();
         $product = DB::table('products')->count();
         $sale = DB::table('sales')->count();
         $purchase = DB::table('purchases')->count();
+        $stok=  DB::table('stock')->count();
+        $stokview=Stock::all();
         // $geo = Charts::database($countries, 'geo', 'google')
         //     ->dimensions(0,250)
         //     ->responsive(true)
@@ -384,8 +395,9 @@ class JoshController extends Controller {
         //     ->responsive(true)
         //     ->groupByMonth( 2017, true);
 
+
         if(Sentinel::check())
-           return view('admin.index',['user_count'=>$user_count,'users'=>$users,'supplier'=>$supplier,'product'=>$product,'sale'=>$sale,'purchase'=>$purchase,'customer'=>$customer,'saledetail'=>$saledetail,'cus'=>$cus,'categ'=>$category] );
+           return view('admin.index',['user_count'=>$user_count,'users'=>$users,'supplier'=>$supplier,'product'=>$product,'sale'=>$sale,'purchase'=>$purchase,'customer'=>$customer,'saledetail'=>$saledetail,'cus'=>$cus,'categ'=>$category,'stok'=>$stok,'stokview'=>$stokview,'purchasedetail'=>$purchasedetail] );
         else
             return redirect('admin/signin')->with('error', 'You must be logged in!');
     }

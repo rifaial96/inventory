@@ -21,7 +21,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Welcome to Dashboard   <span class="hidden-xs header_info">( Dynamic Dashboard )</span></h1>
+        <h1>Welcome to Dashboard   <span class="hidden-xs header_info"></span></h1>
 
         <ol class="breadcrumb">
             <li class="active">
@@ -194,12 +194,12 @@
                                 <h4 class="panel-title">
                                     <i class="livicon" data-name="users" data-size="16" data-loop="true" data-c="#F89A14"
                                        data-hc="#F89A14"></i>
-                                    User Roles
+                                    Monthly Purchase
                                 </h4>
 
                             </div>
                             <div class="panel-body nopadmar">
-                              
+                               {!! $purchasedetail->html() !!}
                             </div>
                         </div>
                     </div>
@@ -287,7 +287,6 @@
     <script src="{{ asset('assets/vendors/moment/js/moment.min.js') }}" type="text/javascript"></script>
     <!-- Back to Top-->
     <script type="text/javascript" src="{{ asset('assets/vendors/countUp_js/js/countUp.js') }}"></script>
-    {{--<script src="http://demo.lorvent.com/rare/default/vendors/raphael/js/raphael.min.js"></script>--}}
     <script src="{{ asset('assets/vendors/morrisjs/morris.min.js') }}"></script>
 
     <script>
@@ -374,5 +373,6 @@
 {!! Charts::scripts() !!}
 {!! $customer->script() !!}
 {!! $saledetail->script() !!}  
+{!! $purchasedetail->script() !!}  
   
 @stop

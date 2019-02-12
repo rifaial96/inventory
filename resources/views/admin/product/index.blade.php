@@ -103,30 +103,25 @@
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/jquery.dataTables.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}"></script>
+    <script>$(function () {$('body').on('hidden.bs.modal', '.modal', function () {$(this).removeData('bs.modal');});});</script>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/buttons.bootstrap.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/dataTables.bootstrap.css') }}"/>
+ <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/buttons.bootstrap.css') }}">
+<script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/jquery.dataTables.js') }}" ></script>
+ <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}" ></script>
 
     <script>
-        $(function () {
-            var table = $('#table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('admin.product.data') !!}',
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'product', name: 'title'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'actions', name: 'actions', orderable: false, searchable: false}
-                ]
-            });
-            table.on('draw', function () {
-                $('.livicon').each(function () {
-                    $(this).updateLivicon();
-                });
-            });
-        });
+        $('#table').DataTable({
+                      responsive: true,
+                      pageLength: 10
+                  });
+                  $('#table').on( 'page.dt', function () {
+                     setTimeout(function(){
+                           $('.livicon').updateLivicon();
+                     },500);
+                  } );
 
-    </script>
+       </script>
 
     <div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="user_delete_confirm_title"
          aria-hidden="true">

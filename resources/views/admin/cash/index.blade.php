@@ -71,18 +71,9 @@
                                         <td>Rp {{ number_format($saldo,2) }}</td>
                                         <td>{{ $data->created_at->diffForHumans() }}</td>
                                         <td>
-                                            <a href="{{ URL::to('admin/cash/' . $data->id . '/edit' ) }}"><i class="livicon"
-                                                                                                            data-name="edit"
-                                                                                                            data-size="18"
-                                                                                                            data-loop="true"
-                                                                                                            data-c="#428BCA"
-                                                                                                            data-hc="#428BCA"
-                                                                                                            title="@lang('cash/table.update-cash')"></i></a>
+                                            <a href="{{ URL::to('admin/cash/' . $data->id . '/edit' ) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="@lang('cash/table.update-cash')"></i></a>
                                             <a href="{{ route('admin.cash.confirm-delete', $data->id) }}" data-toggle="modal"
-                                            data-target="#delete_confirm"><i class="livicon" data-name="remove-alt"
-                                                                                data-size="18" data-loop="true" data-c="#f56954"
-                                                                                data-hc="#f56954"
-                                                                                title="@lang('cash/table.delete-cash')"></i></a>
+                                            data-target="#delete_confirm"><i class="livicon" data-name="remove-alt" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="@lang('cash/table.delete-cash')"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -98,30 +89,25 @@
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/jquery.dataTables.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}"></script>
+   <script>$(function () {$('body').on('hidden.bs.modal', '.modal', function () {$(this).removeData('bs.modal');});});</script>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/buttons.bootstrap.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/dataTables.bootstrap.css') }}"/>
+ <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/buttons.bootstrap.css') }}">
+<script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/jquery.dataTables.js') }}" ></script>
+ <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}" ></script>
 
     <script>
-        $(function () {
-            var table = $('#table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('admin.cash.data') !!}',
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'cash', name: 'title'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'actions', name: 'actions', orderable: false, searchable: false}
-                ]
-            });
-            table.on('draw', function () {
-                $('.livicon').each(function () {
-                    $(this).updateLivicon();
-                });
-            });
-        });
+        $('#table').DataTable({
+                      responsive: true,
+                      pageLength: 10
+                  });
+                  $('#table').on( 'page.dt', function () {
+                     setTimeout(function(){
+                           $('.livicon').updateLivicon();
+                     },500);
+                  } );
 
-    </script>
+       </script>
 
     <div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="user_delete_confirm_title"
          aria-hidden="true">

@@ -50,7 +50,7 @@
                         <div class="form-group {{ $errors->first('date_flow', 'has-error') }}">
                             <div class="input-group-addon">
                                 <i class="livicon" data-name="calendar" data-size="14" data-loop="true"></i>                            
-                            {!! Form::text('date_flow', null, array('class' => 'form-control input-lg', 'id' => 'datetime1', 'placeholder'=> trans('cash/form.ph-date'))) !!}</div>
+                            {!! Form::text('date_flow', null, array('class' => 'form-control input-lg', 'id' => 'datetime1', 'placeholder'=> trans('cash/form.ph-date'),'readonly'=>'readonly')) !!}</div>
                             <span class="help-block">{{ $errors->first('date_flow', ':message') }}</span>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-sm-8 ">
                         <label>Money</label>
                         <div class="form-group {{ $errors->first('money', 'has-error') }}">
-                            {!! Form::text('money', null, array('class' => 'form-control input-lg','placeholder'=> trans('cash/form.ph-money'))) !!}
+                            {!! Form::number('money', null, array('class' => 'form-control input-lg','placeholder'=> trans('cash/form.ph-money'))) !!}
                             <span class="help-block">{{ $errors->first('money', ':message') }}</span>
                         </div>
                     </div>

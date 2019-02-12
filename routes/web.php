@@ -258,6 +258,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
        Route::get('report_sale/{id}', 'ReportSaleController@show');
        Route::get('report_sale/print/{id}', 'ReportSaleController@print');
 
+       Route::get('report_cash', 'ReCashController@index');
+
 
     /* laravel example routes */
     #Charts
@@ -301,6 +303,10 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
     Route::get('task/data', 'TaskController@data')->name('data');
     Route::post('task/{task}/edit', 'TaskController@update')->name('update');
     Route::post('task/{task}/delete', 'TaskController@delete')->name('delete');
+
+
+   
+    
 
 });
 
@@ -364,6 +370,7 @@ Route::get('/sale_detail/create/ajax-state',function()
     return $subcategories;
 
 });
+Route::get('notif','NotifController@index');
 
 Route::get('blog','BlogController@index')->name('blog');
 Route::get('blog/{slug}/tag', 'BlogController@getBlogTag');
