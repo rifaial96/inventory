@@ -47,14 +47,14 @@
                     <div class="col-sm-8 ">
                         <label>Category</label>
                         <div class="form-group {{ $errors->first('category', 'has-error') }}">
-                            {!! Form::text('category', null, array('class' => 'form-control input-lg','placeholder'=> trans('category/form.ph-title'))) !!}
+                            {!! Form::text('category', null, array('class' => 'form-control input-lg' )) !!}
                             <span class="help-block">{{ $errors->first('category', ':message') }}</span>
                         </div>
                     </div>
                     <div class="col-sm-8 ">
                         <label>Discount</label>
                         <div class="form-group {{ $errors->first('discount', 'has-error') }}">
-                            {!! Form::text('discount', null, array('class' => 'form-control input-lg','placeholder'=> trans('category/form.ph-discount'))) !!}
+                            {!! Form::number('discount', null, array('class' => 'form-control input-lg')) !!}
                             <span class="help-block">{{ $errors->first('discount', ':message') }}</span>
                         </div>
                     </div>

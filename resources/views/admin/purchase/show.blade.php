@@ -111,13 +111,7 @@
                                         <td>Rp {{ number_format($cost,2) }}</td>
                                         <td>Rp {{ number_format($cost * $data->quantity,2) }} @php $grandtotal = $grandtotal + (($cost * $data->quantity)) @endphp</td>
                                         <td>
-                                            <a href="{{ URL::to('admin/purchase_detail/' . $data->id . '/edit' ) }}"><i class="livicon"
-                                                                                                            data-name="edit"
-                                                                                                            data-size="18"
-                                                                                                            data-loop="true"
-                                                                                                            data-c="#428BCA"
-                                                                                                            data-hc="#428BCA"
-                                                                                                            title="@lang('purchase_detail/table.update-data')"></i></a>
+                                            
                                             <a href="{{ URL::to('admin/purchase_detail/delete', $data->id) }}" ><i class="livicon" data-name="remove-alt"
                                                                                 data-size="18" data-loop="true" data-c="#f56954"
                                                                                 data-hc="#f56954"

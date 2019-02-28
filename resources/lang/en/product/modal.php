@@ -6,7 +6,7 @@
  */
 return array(
 
-    'body' => 'Are you sure to delete this Product? This operation is irreversible.',
+    'body' => 'Are you sure to delete this? This operation is irreversible.',
     'cancel' => 'Cancel',
     'confirm' => 'Delete',
     'title' => 'Delete Product',
